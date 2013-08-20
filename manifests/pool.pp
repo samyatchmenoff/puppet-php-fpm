@@ -19,5 +19,6 @@ define php-fpm::pool(
   file { "/etc/php5/fpm/pool.d/${name}.conf":
     ensure  => present,
     content => template('php-fpm/pool.conf.erb'),
+    notify  => Class['Php-fpm::Service'],
   }
 }
