@@ -1,4 +1,5 @@
 define php-fpm::pool(
+  $ensure = present,
   $user = 'www-data',
   $group = 'www-data',
   $listen = '127.0.0.1:9000',
@@ -17,7 +18,7 @@ define php-fpm::pool(
   $chdir = '/',
 ) {
   file { "/etc/php5/fpm/pool.d/${name}.conf":
-    ensure  => present,
+    ensure  => $ensure,
     content => template('php-fpm/pool.conf.erb'),
     notify  => Class['Php-fpm::Service'],
   }
