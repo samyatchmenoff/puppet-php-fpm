@@ -1,6 +1,7 @@
 class php-fpm::service {
   service { 'php5-fpm':
-    ensure    => running,
-    provider  => 'init',
+    ensure   => running,
+    enable   => true,
+    provider => 'init',
   }
 }
