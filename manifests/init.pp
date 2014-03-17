@@ -7,11 +7,11 @@ class php-fpm(
   $emergency_restart_threshold = 0,
   $emergency_restart_interval = 0,
   $process_control_timeout = 0,
-  $process_max = 128,
+  $process_max = 0,
   $daemonize = yes,
-  $rlimit_files = 1024,
-  $rlimit_core = 0,
-  $events_mechanism = false,
+  $rlimit_files = undef,
+  $rlimit_core = undef,
+  $events_mechanism = undef,
 ){
   anchor { 'php-fpm::begin':
     before => Class['php-fpm::install'],
