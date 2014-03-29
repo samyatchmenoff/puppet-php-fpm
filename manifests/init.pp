@@ -1,4 +1,5 @@
 class php-fpm(
+  $ensure = 'present',
   $pid = '/var/run/php5-fpm.pid',
   $error_log = '/var/log/php5-fpm.log',
   $syslog_facility = 'daemon',
@@ -18,6 +19,7 @@ class php-fpm(
     notify => Class['php-fpm::service'],
   }
   class { 'php-fpm::install':
+    ensure => $ensure,
     notify => Class['php-fpm::service'],
   }
   class { 'php-fpm::service': }
