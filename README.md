@@ -2,6 +2,17 @@
 
 A lightweight module to manage php-fpm and php-fpm pools.
 
+## Usage
+
+```puppet
+  class { 'php-fpm': }
+  php-fpm::pool { 'testing':
+    listen          => '/var/run/php5-fpm-testing.sock',
+    pm              => 'static',
+    pm_max_children => 30,
+  }
+```
+
 ## Development
 
 I/we use github as development platform:
