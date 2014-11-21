@@ -15,6 +15,7 @@ define php-fpm::pool(
   $pm_max_spare_servers = 6,
   $pm_process_idle_timeout = '10s',
   $pm_max_requests = 500,
+  $request_terminate_timeout = 0,
   $chdir = '/',
 ) {
   file { "/etc/php5/fpm/pool.d/${name}.conf":
